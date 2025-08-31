@@ -45,7 +45,7 @@ nav a:hover {
 }
 section {
     padding:60px 20px;
-    max-width:900px;
+    max-width:1100px;
     margin:40px auto;
     background:rgba(0,0,0,0.6);
     border-radius:12px;
@@ -78,6 +78,17 @@ p {
     color:black;
     box-shadow:0 0 20px #00ff00;
 }
+.flex {
+    display:flex;
+    align-items:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+.flex img {
+    max-width:100%;
+    border-radius:12px;
+    box-shadow:0 0 15px #00ff00;
+}
 .team {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -91,6 +102,11 @@ p {
     border-radius:10px;
     text-align:center;
     box-shadow:0 0 15px #00ff00;
+}
+.card img {
+    width:100%;
+    border-radius:8px;
+    margin-bottom:10px;
 }
 </style>
 </head>
@@ -108,41 +124,58 @@ p {
 </nav>
 
 <section id="home">
-    <h1>🚀 CR7 Script</h1>
-    <a class="button" href="https://discord.gg/9zmzvasrSW" target="_blank">Join CR7 Discord Server</a>
+    <div class="flex">
+        <div style="flex:1;text-align:center;">
+            <h1>🚀 CR7 Script</h1>
+            <p>The ultimate script for The Survival Game.</p>
+            <a class="button" href="https://discord.gg/9zmzvasrSW" target="_blank">Join CR7 Discord Server</a>
+        </div>
+        <div style="flex:1;text-align:center;">
+            <img src="resimler/hero.png" alt="CR7 Script Showcase">
+        </div>
+    </div>
 </section>
 
 <section id="about">
-    <h2>About Script</h2>
-    <p>
-        ✅ Auto Farms<br>
-        ✅ Auto Kill Bosses<br>
-        ✅ Kill Aura<br>
-        ✅ Invisible Fly<br>
-        ✅ Choose Spawn Gamepass<br>
-        ✅ Infinite Bag Gamepass
-    </p>
+    <div class="flex">
+        <div style="flex:1;">
+            <h2>About Script</h2>
+            <p>
+                ✅ Auto Farms<br>
+                ✅ Auto Kill Bosses<br>
+                ✅ Kill Aura<br>
+                ✅ Invisible Fly<br>
+                ✅ Choose Spawn Gamepass<br>
+                ✅ Infinite Bag Gamepass
+            </p>
+        </div>
+        <div style="flex:1;text-align:center;">
+            <img src="resimler/about.png" alt="About Script">
+        </div>
+    </div>
 </section>
 
-<section id="thanks">
+<section id="thanks" style="text-align:center;">
     <h2>Thanks</h2>
-    <p>
-        Shadow & Hanki
-    </p>
+    <p>Shadow & Hanki</p>
+    <img src="resimler/thanks.png" alt="Thanks" style="max-width:400px;margin-top:20px;">
 </section>
 
 <section id="team">
     <h2>Meet Our Team</h2>
     <div class="team">
         <div class="card">
+            <img src="resimler/arda.png" alt="Cr7 Arda">
             <h3>Cr7 Arda</h3>
             <p>Founder & Developer</p>
         </div>
         <div class="card">
+            <img src="resimler/hanki.png" alt="Hanki">
             <h3>Hanki</h3>
             <p>Support & Helper</p>
         </div>
         <div class="card">
+            <img src="resimler/shadow.png" alt="Shadow">
             <h3>Shadow</h3>
             <p>Security & Protection</p>
         </div>
@@ -150,9 +183,16 @@ p {
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
-    <p>Discord: <b>cr7_ardax</b></p>
-    <a class="button" href="https://discord.gg/9zmzvasrSW" target="_blank">Join CR7 Discord</a>
+    <div class="flex">
+        <div style="flex:1;text-align:center;">
+            <h2>Contact</h2>
+            <p>Discord: <b>cr7_ardax</b></p>
+            <a class="button" href="https://discord.gg/9zmzvasrSW" target="_blank">Join CR7 Discord</a>
+        </div>
+        <div style="flex:1;text-align:center;">
+            <img src="resimler/contact.png" alt="Contact">
+        </div>
+    </div>
 </section>
 
 <script>
