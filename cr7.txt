@@ -1,1 +1,186 @@
-print("arda")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CR7 Script - The Survival Game</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    body {
+      background: black;
+      color: #00ff88;
+      overflow-x: hidden;
+    }
+
+    /* Akan Matrix kodları efekti */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #00ff88;
+      box-shadow: 0 0 20px #00ff88;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #00ff88;
+      text-shadow: 0 0 15px #00ff88;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #00ff88;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+    }
+
+    section {
+      padding: 50px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #00ff88;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      margin: 15px;
+      border: 2px solid #00ff88;
+      border-radius: 10px;
+      color: #00ff88;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00ff88;
+      color: black;
+      box-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #00ff88;
+      margin-top: 40px;
+      box-shadow: 0 0 20px #00ff88;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <header>
+    <h1>CR7 SCRIPT</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About Script</a>
+      <a href="#discord">Discord</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Free CR7 Script for The Survival Game</h2>
+    <a class="btn" href="#discord">Join CR7 Discord</a>
+  </section>
+
+  <section id="about">
+    <h2>About Script</h2>
+    <p><b>By Cr7 Arda</b><br><br>
+    CR7 Script is the best and most advanced script for <b>The Survival Game</b>.  
+    It offers powerful features such as:<br>
+    Auto Farms, Auto Kill Bosses, Kill Aura, Invisible Fly,  
+    Choose Spawn Gamepass, and Infinite Bag Gamepass.  
+    <br><br>
+    The most powerful and user-friendly script for The Survival Game,  
+    designed to dominate every challenge.
+    </p>
+  </section>
+
+  <section id="discord">
+    <h2>Join CR7 Discord</h2>
+    <p>To use the script, join our official server:</p>
+    <a class="btn" href="https://discord.gg/9zmzvasrSW" target="_blank">Join Discord</a>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Discord: <b>cr7_ardax</b></p>
+  </section>
+
+  <footer>
+    <p>Special thanks to Shadow & Hanki for their support in script security. <br>
+    © 2025 CR7 Script - All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Matrix kod yağmuru
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const chars = "01CR7SCRIPT";
+    const font_size = 14;
+    const columns = canvas.width / font_size;
+    const drops = [];
+
+    for (let x = 0; x < columns; x++) drops[x] = 1;
+
+    function draw() {
+      ctx.fillStyle = "rgba(0,0,0,0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#0f0";
+      ctx.font = font_size + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * font_size, drops[i] * font_size);
+
+        if (drops[i] * font_size > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 35);
+
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
+</body>
+</html>
