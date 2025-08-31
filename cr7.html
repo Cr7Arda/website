@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CR7 Script - The Survival Game</title>
   <style>
     /* Matrix Rain Background */
@@ -22,7 +23,7 @@
     }
 
     nav {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       padding: 15px;
       text-align: center;
       border-bottom: 2px solid #00ff00;
@@ -43,23 +44,27 @@
     section {
       padding: 60px 20px;
       max-width: 900px;
-      margin: auto;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.6); /* Yazı arkası okunaklı olsun */
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,255,0,0.3);
     }
 
     h1, h2 {
       color: #00ff00;
       text-align: center;
-      text-shadow: 0 0 10px #00ff00;
+      text-shadow: 0 0 12px #00ff00;
     }
 
     p {
       text-align: center;
       line-height: 1.6;
+      text-shadow: 0 0 5px black; /* Yazıya hafif siyah gölge */
     }
 
     .button {
-      display: inline-block;
-      margin: 15px auto;
+      display: block;
+      margin: 20px auto;
       padding: 12px 25px;
       border: 2px solid #00ff00;
       border-radius: 8px;
@@ -67,6 +72,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
+      text-align: center;
     }
 
     .button:hover {
@@ -83,7 +89,7 @@
     }
 
     .card {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.75);
       border: 2px solid #00ff00;
       padding: 20px;
       border-radius: 10px;
@@ -104,35 +110,31 @@
   </nav>
 
   <section id="home">
-    <h1>🔥 CR7 Script - The Survival Game 🔥</h1>
-    <p>Welcome to the most advanced script site for <b>The Survival Game</b>.<br>
-       Powered by <b>Cr7 Arda</b>, made for domination!</p>
-    <a class="button" href="https://discord.gg/9zmzvasrSW" target="_blank">Join CR7 Discord</a>
+    <h1>🚀 CR7 Script</h1>
+    <p>The ultimate script for The Survival Game.</p>
+    <a class="button" href="https://discord.gg/9zmzvasrSW" target="_blank">Join CR7 Discord Server</a>
   </section>
 
   <section id="about">
     <h2>About Script</h2>
-    <p>
-      By Cr7 Arda<br><br>
-      CR7 Script is the best and most advanced script for The Survival Game.<br>
-      Features:<br>
-      - Auto Farms<br>
-      - Auto Kill Bosses<br>
-      - Kill Aura<br>
-      - Invisible Fly<br>
-      - Choose Spawn Gamepass<br>
-      - Infinite Bag Gamepass<br><br>
-      ⚡ Powerful & User Friendly ⚡
+    <p><b>By Cr7 Arda</b><br><br>
+      CR7 Script is the best and most advanced script for <b>The Survival Game</b>.  
+      It offers powerful features such as:<br>
+      ✅ Auto Farms<br>
+      ✅ Auto Kill Bosses<br>
+      ✅ Kill Aura<br>
+      ✅ Invisible Fly<br>
+      ✅ Choose Spawn Gamepass<br>
+      ✅ Infinite Bag Gamepass<br><br>
+      The most powerful and user friendly script, designed to dominate every challenge.
     </p>
   </section>
 
   <section id="thanks">
-    <h2>Special Thanks</h2>
+    <h2>Thanks</h2>
     <p>
-      Thanks to <b>Shadow</b> and <b>Hanki</b> for their massive support in script
-      protection & security.<br>
-      And to all friends, community members, testers, and admins
-      who made this journey possible!
+      Special thanks go to <b>Shadow</b> and <b>Hanki</b>, whose support in script security and protection played a vital role.  
+      And thanks to all friends, community members, testers, and admins who stood by me throughout this journey.
     </p>
   </section>
 
@@ -149,7 +151,7 @@
       </div>
       <div class="card">
         <h3>Hanki</h3>
-        <p>Security & Testing</p>
+        <p>Support & Testing</p>
       </div>
     </div>
   </section>
@@ -157,18 +159,18 @@
   <section id="contact">
     <h2>Contact</h2>
     <p>Discord: <b>cr7_ardax</b></p>
-    <p>Server: <a href="https://discord.gg/9zmzvasrSW" target="_blank">Join CR7 Discord</a></p>
+    <a class="button" href="https://discord.gg/9zmzvasrSW" target="_blank">Join CR7 Discord</a>
   </section>
 
   <script>
-    // Matrix Background Effect
+    // Matrix Rain Effect
     const canvas = document.getElementById("matrix");
     const ctx = canvas.getContext("2d");
 
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
-    const letters = "01";
+    const letters = "01CR7SCRIPT";
     const fontSize = 14;
     const columns = canvas.width / fontSize;
     const drops = [];
@@ -179,21 +181,26 @@
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#0F0";
+      ctx.fillStyle = "#00ff00";
       ctx.font = fontSize + "px monospace";
 
       for (let i = 0; i < drops.length; i++) {
         const text = letters.charAt(Math.floor(Math.random() * letters.length));
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
-
+        }
         drops[i]++;
       }
     }
 
     setInterval(draw, 35);
+
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
   </script>
 </body>
 </html>
