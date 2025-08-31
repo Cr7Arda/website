@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CR7 Script - The Survival Game</title>
   <style>
-    /* Matrix Rain Background */
     body {
       margin: 0;
       padding: 0;
       background: black;
       color: #00ff00;
-      font-family: "Courier New", monospace;
+      font-family: "Lucida Console", "Courier New", monospace;
       overflow-x: hidden;
     }
 
@@ -45,21 +44,22 @@
       padding: 60px 20px;
       max-width: 900px;
       margin: 40px auto;
-      background: rgba(0, 0, 0, 0.6); /* Yazı arkası okunaklı olsun */
+      background: rgba(0, 0, 0, 0.6);
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,255,0,0.3);
     }
 
-    h1, h2 {
+    h1, h2, h3 {
       color: #00ff00;
       text-align: center;
+      font-weight: bold;
       text-shadow: 0 0 12px #00ff00;
     }
 
     p {
       text-align: center;
       line-height: 1.6;
-      text-shadow: 0 0 5px black; /* Yazıya hafif siyah gölge */
+      text-shadow: 0 0 5px black;
     }
 
     .button {
@@ -133,7 +133,7 @@
   <section id="thanks">
     <h2>Thanks</h2>
     <p>
-      Special thanks go to <b>Shadow</b> and <b>Hanki</b>, whose support in script security and protection played a vital role.  
+      Special thanks go to <b>Shadow</b> and <b>Hanki</b>.  
       And thanks to all friends, community members, testers, and admins who stood by me throughout this journey.
     </p>
   </section>
@@ -163,7 +163,6 @@
   </section>
 
   <script>
-    // Matrix Rain Effect
     const canvas = document.getElementById("matrix");
     const ctx = canvas.getContext("2d");
 
