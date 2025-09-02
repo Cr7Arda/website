@@ -114,17 +114,34 @@ p {
 
 <canvas id="matrix"></canvas>
 
-<nav>
+<nav style="position:relative; display:flex; justify-content:space-between; align-items:center; padding:15px 40px; border-bottom:2px solid #00ff00;">
     <div class="left">By Cr7 Arda</div>
-    <div class="center">
+    <div class="center" style="position:relative;">
         <a href="#home">Home</a>
         <a href="https://discord.gg/9zmzvasrSW" target="_blank">Discord</a>
         <a href="#contact">Contact</a>
-        <span style="margin-left:20px; font-weight:bold; color:#00ff00;">
+        <div id="visitorDisplay" style="position:absolute; left:50%; top:0; transform:translateX(-50%); color:#00ff00; font-weight:bold;">
             Visitors: <span id="visitorCount">0</span>
-        </span>
+        </div>
     </div>
 </nav>
+
+<script>
+const visitorSpan = document.getElementById('visitorCount');
+const chars = "0123456789*#";
+
+function randomVisitorString() {
+    let str = "";
+    for(let i=0;i<5;i++){
+        str += chars.charAt(Math.floor(Math.random()*chars.length));
+    }
+    return str;
+}
+
+setInterval(() => {
+    visitorSpan.innerText = randomVisitorString();
+}, 300);
+</script>
 
 <section id="home">
     <div class="flex">
@@ -237,28 +254,5 @@ canvas.width=window.innerWidth;
 });
 </script>
 
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-
-<script>
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-};
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-const counterRef = db.ref('visitorCount');
-
-counterRef.transaction(current => (current || 0) + 1);
-counterRef.on('value', snapshot => {
-    document.getElementById('visitorCount').innerText = snapshot.val();
-});
-</script>
 </body>
 </html>
