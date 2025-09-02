@@ -123,7 +123,7 @@ p {
         <a href="https://discord.gg/9zmzvasrSW" target="_blank">Discord</a>
         <a href="#contact">Contact</a>
     </div>
-    <div id="visitorDisplay" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); color:#00ff00; font-weight:bold;">
+    <div id="visitorDisplay" style="position:absolute; left:50%; top:50%; transform:translateX(-50%); color:#00ff00; font-weight:bold;">
         Visitors: <span id="visitorCount">0</span>
     </div>
 </nav>
@@ -137,13 +137,20 @@ function randomVisitorChar() {
 }
 
 setInterval(() => {
-    let newChar = "";
-    for(let i=0;i<1+Math.floor(Math.random()*3);i++){
-        newChar += randomVisitorChar();
-    }
-    visitorSpan.innerText = newChar;
+    visitorSpan.innerText = randomVisitorChar();
 }, 50);
+
+function adjustVisitorPosition(){
+    const nav = document.querySelector('nav');
+    const visitor = document.getElementById('visitorDisplay');
+    const navHeight = nav.offsetHeight;
+    visitor.style.top = (navHeight/2) + 'px';
+}
+
+window.addEventListener('resize', adjustVisitorPosition);
+window.addEventListener('load', adjustVisitorPosition);
 </script>
+
 
 
 
