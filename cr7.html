@@ -120,6 +120,9 @@ p {
         <a href="#home">Home</a>
         <a href="https://discord.gg/9zmzvasrSW" target="_blank">Discord</a>
         <a href="#contact">Contact</a>
+        <span style="margin-left:20px; font-weight:bold; color:#00ff00;">
+            Visitors: <span id="visitorCount">0</span>
+        </span>
     </div>
 </nav>
 
@@ -234,5 +237,28 @@ canvas.width=window.innerWidth;
 });
 </script>
 
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const counterRef = db.ref('visitorCount');
+
+counterRef.transaction(current => (current || 0) + 1);
+counterRef.on('value', snapshot => {
+    document.getElementById('visitorCount').innerText = snapshot.val();
+});
+</script>
 </body>
 </html>
