@@ -115,6 +115,7 @@ p {
 <canvas id="matrix"></canvas>
 
 
+
 <nav style="position:relative; display:flex; justify-content:space-between; align-items:center; padding:15px 40px; border-bottom:2px solid #00ff00;">
     <div class="left">By Cr7 Arda</div>
     <div class="center">
@@ -122,7 +123,7 @@ p {
         <a href="https://discord.gg/9zmzvasrSW" target="_blank">Discord</a>
         <a href="#contact">Contact</a>
     </div>
-    <div id="visitorDisplay" style="position:absolute; left:50%; transform:translateX(-50%); color:#00ff00; font-weight:bold; top:50%; transform:translate(-50%,-50%);">
+    <div id="visitorDisplay" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); color:#00ff00; font-weight:bold;">
         Visitors: <span id="visitorCount">0</span>
     </div>
 </nav>
@@ -136,9 +137,14 @@ function randomVisitorChar() {
 }
 
 setInterval(() => {
-    visitorSpan.innerText = randomVisitorChar();
-}, 300);
+    let newChar = "";
+    for(let i=0;i<1+Math.floor(Math.random()*3);i++){
+        newChar += randomVisitorChar();
+    }
+    visitorSpan.innerText = newChar;
+}, 50);
 </script>
+
 
 
 
